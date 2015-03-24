@@ -1,0 +1,20 @@
+package org.garrit.common;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * A registerd submission is a {@link Submission} which has been given an ID.
+ *
+ * @author Samuel Coleman <samuel@seenet.ca>
+ * @since 1.0.0
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class RegisteredSubmission extends Submission
+{
+    /**
+     * A unique ID for the submission.
+     */
+    private int id;
+}
