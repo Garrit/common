@@ -23,7 +23,7 @@ public class ProblemTest
     public void testProblemFromFile() throws IOException
     {
         Path problemPath = PROBLEMS_PATH.resolve(EXAMPLE_PROBLEM).resolve(Problem.PROBLEM_DEFINITION);
-        Problem problem = Problem.fromFile(problemPath.toFile());
+        Problem problem = Problems.fromFile(problemPath.toFile());
 
         assertNotNull(problem.getDescription());
 
@@ -43,6 +43,6 @@ public class ProblemTest
     @Test
     public void testProblemByName() throws IOException
     {
-        Problem.problemByName(PROBLEMS_PATH, EXAMPLE_PROBLEM);
+        Problems.problemByName(PROBLEMS_PATH, EXAMPLE_PROBLEM);
     }
 }
