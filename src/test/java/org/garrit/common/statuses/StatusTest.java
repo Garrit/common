@@ -107,7 +107,7 @@ public class StatusTest
         String serialized = mapper.writeValueAsString(status);
 
         assertEquals(
-                "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"reporter\":{},\"negotiator\":{}}}",
+                "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"negotiator\":{},\"reporter\":{}}}",
                 serialized);
     }
 }
