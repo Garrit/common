@@ -22,7 +22,7 @@ public class ExecutionCase
     /**
      * The output of the submission for the case.
      */
-    private byte output[];
+    private byte[] output;
     /**
      * Whether or not an error occurred.
      */

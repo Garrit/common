@@ -1,5 +1,7 @@
 package org.garrit.common.messages;
 
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -22,7 +24,7 @@ public class Submission
     /**
      * All files required for the submission.
      */
-    private SubmissionFile files[];
+    private List<SubmissionFile> files;
     /**
      * An identifier serving as the main entry point for the submission. What
      * exactly constitutes the main entry point for the submission will depend

@@ -1,5 +1,7 @@
 package org.garrit.common.messages;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,5 +18,5 @@ public class Judgement extends Execution
     /**
      * Cases evaluated during the judgement.
      */
-    private ExecutionCase cases[];
+    private List<ExecutionCase> cases;
 }

@@ -1,5 +1,7 @@
 package org.garrit.common.messages;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,5 +18,5 @@ public class Execution extends RegisteredSubmission
     /**
      * Cases evaluated during the execution.
      */
-    private ExecutionCase cases[];
+    private List<ExecutionCase> cases;
 }

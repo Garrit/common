@@ -25,5 +25,5 @@ public class SubmissionFile
     /**
      * The contents of the file.
      */
-    private byte contents[];
+    private byte[] contents;
 }
