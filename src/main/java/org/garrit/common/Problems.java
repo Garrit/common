@@ -2,9 +2,17 @@ package org.garrit.common;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileVisitOption;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.PathMatcher;
 import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.EnumSet;
+import java.util.LinkedList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -82,5 +90,37 @@ public class Problems
     {
         File problemFile = problems.resolve(name).resolve(Problem.PROBLEM_DEFINITION).toFile();
         return Problems.fromFile(problemFile);
+    }
+
+    /**
+     * Retrieve all problems available in a directory.
+     * 
+     * @param problems the path containing all problems
+     * @return a list of the names of all available problems
+     * @throws IOException if an error occurs finding problems
+     */
+    public static LinkedList<String> availableProblems(Path problems) throws IOException
+    {
+        String problemPattern = "glob:" + problems.toString() + "/*/" + Problem.PROBLEM_DEFINITION;
+        PathMatcher matcher = problems.getFileSystem().getPathMatcher(problemPattern);
+
+        LinkedList<String> names = new LinkedList<>();
+        FileVisitor<Path> visitor = new SimpleFileVisitor<Path>()
+        {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException
+            {
+                if (matcher.matches(file))
+                    names.add(file.getParent().getFileName().toString());
+
+                return super.visitFile(file, attrs);
+            }
+        };
+
+        /* Walk the file tree just deep enough to find problem definitions the
+         * next folder down. */
+        Files.walkFileTree(problems, EnumSet.noneOf(FileVisitOption.class), 2, visitor);
+
+        return names;
     }
 }
