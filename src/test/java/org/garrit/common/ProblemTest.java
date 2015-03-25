@@ -2,22 +2,28 @@ package org.garrit.common;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.junit.Test;
 
 public class ProblemTest
 {
     /**
-     * The path to a file containing a problem definition.
+     * The path to a directory containing a problem definitions.
      */
-    private static final String PROBLEM_PATH = "../problems/echo/problem.json";
+    private static final Path PROBLEMS_PATH = Paths.get("../problems");
+    /**
+     * The name of a problem known to exist.
+     */
+    private static final String EXAMPLE_PROBLEM = "echo";
 
     @Test
     public void testProblemFromFile() throws IOException
     {
-        Problem problem = Problem.fromFile(new File(PROBLEM_PATH));
+        Path problemPath = PROBLEMS_PATH.resolve(EXAMPLE_PROBLEM).resolve(Problem.PROBLEM_DEFINITION);
+        Problem problem = Problem.fromFile(problemPath.toFile());
 
         assertNotNull(problem.getDescription());
 
@@ -32,5 +38,11 @@ public class ProblemTest
             assertNotNull(problemCase.getInput());
             assertNotNull(problemCase.getOutput());
         }
+    }
+
+    @Test
+    public void testProblemByName() throws IOException
+    {
+        Problem.problemByName(PROBLEMS_PATH, EXAMPLE_PROBLEM);
     }
 }

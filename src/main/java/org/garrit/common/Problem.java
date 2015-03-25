@@ -23,6 +23,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @JsonInclude(Include.NON_NULL)
 public class Problem
 {
+    protected static final String PROBLEM_DEFINITION = "problem.json";
+
     /**
      * The name of the problem.
      */
@@ -102,5 +104,20 @@ public class Problem
         }
 
         return problem;
+    }
+
+    /**
+     * Get a problem by its name.
+     * 
+     * @param problems the path containing all problems
+     * @param name the name of the problem
+     * @return the problem
+     * @throws IOException if the problem does not exist, or if an error occurs
+     *             while reading it
+     */
+    public static Problem problemByName(Path problems, String name) throws IOException
+    {
+        File problemFile = problems.resolve(name).resolve(PROBLEM_DEFINITION).toFile();
+        return Problem.fromFile(problemFile);
     }
 }
