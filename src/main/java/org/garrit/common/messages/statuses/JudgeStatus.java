@@ -1,15 +1,15 @@
-package org.garrit.common.statuses;
+package org.garrit.common.messages.statuses;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
- * A representation of the status of an executor.
+ * A representation of the status of a judge.
  *
  * @author Samuel Coleman <samuel@seenet.ca>
  * @since 1.0.0
  */
 @JsonPropertyOrder({"languages", "problems", "queued"})
-public interface ExecutorStatus extends CapabilityStatus
+public interface JudgeStatus extends CapabilityStatus
 {
     /**
      * @return languages supported by this executor
@@ -30,6 +30,6 @@ public interface ExecutorStatus extends CapabilityStatus
     @Override
     public default CapabilityType getCapabilityType()
     {
-        return CapabilityType.EXECUTOR;
+        return CapabilityType.JUDGE;
     }
 }

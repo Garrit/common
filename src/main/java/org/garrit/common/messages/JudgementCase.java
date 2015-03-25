@@ -1,4 +1,4 @@
-package org.garrit.common;
+package org.garrit.common.messages;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

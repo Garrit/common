@@ -1,4 +1,4 @@
-package org.garrit.common.statuses;
+package org.garrit.common.messages.statuses;
 
 /**
  * Each service provides one or more capabilities. This enum permits services to

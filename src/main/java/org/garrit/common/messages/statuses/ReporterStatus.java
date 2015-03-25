@@ -1,4 +1,4 @@
-package org.garrit.common.statuses;
+package org.garrit.common.messages.statuses;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 

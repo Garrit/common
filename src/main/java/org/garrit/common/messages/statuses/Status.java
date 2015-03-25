@@ -1,4 +1,4 @@
-package org.garrit.common.statuses;
+package org.garrit.common.messages.statuses;
 
 import java.util.Collections;
 import java.util.HashMap;

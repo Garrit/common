@@ -1,4 +1,4 @@
-package org.garrit.common;
+package org.garrit.common.messages;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
