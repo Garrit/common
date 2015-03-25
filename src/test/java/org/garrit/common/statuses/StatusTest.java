@@ -3,6 +3,7 @@ package org.garrit.common.statuses;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -34,10 +35,26 @@ public class StatusTest
     public void testExecutorCapabilities() throws IOException
     {
         Status status = new Status("empty service");
-        ExecutorStatus executor = new ExecutorStatus();
-        executor.setLanguages(new String[] {"piglatin"});
-        executor.setProblems(new String[] {"hard"});
-        executor.setQueued(new int[] {});
+        ExecutorStatus executor = new ExecutorStatus()
+        {
+            @Override
+            public Iterable<String> getLanguages()
+            {
+                return Arrays.asList("piglatin");
+            }
+
+            @Override
+            public Iterable<String> getProblems()
+            {
+                return Arrays.asList("hard");
+            }
+
+            @Override
+            public Iterable<Integer> getQueued()
+            {
+                return Arrays.asList();
+            }
+        };
 
         status.setCapabilityStatus(executor);
 
@@ -53,10 +70,26 @@ public class StatusTest
     public void testJudgeCapabilities() throws IOException
     {
         Status status = new Status("empty service");
-        JudgeStatus executor = new JudgeStatus();
-        executor.setLanguages(new String[] {"elbonian"});
-        executor.setProblems(new String[] {"several"});
-        executor.setQueued(new int[] {});
+        JudgeStatus executor = new JudgeStatus()
+        {
+            @Override
+            public Iterable<String> getLanguages()
+            {
+                return Arrays.asList("elbonian");
+            }
+
+            @Override
+            public Iterable<String> getProblems()
+            {
+                return Arrays.asList("several");
+            }
+
+            @Override
+            public Iterable<Integer> getQueued()
+            {
+                return Arrays.asList();
+            }
+        };
 
         status.setCapabilityStatus(executor);
 
@@ -72,7 +105,9 @@ public class StatusTest
     public void testReporterCapabilities() throws IOException
     {
         Status status = new Status("empty service");
-        status.setCapabilityStatus(new ReporterStatus());
+        status.setCapabilityStatus(new ReporterStatus()
+        {
+        });
 
         ObjectMapper mapper = new ObjectMapper();
         String serialized = mapper.writeValueAsString(status);
@@ -86,7 +121,9 @@ public class StatusTest
     public void testNegotiatorCapabilities() throws IOException
     {
         Status status = new Status("empty service");
-        status.setCapabilityStatus(new NegotiatorStatus());
+        status.setCapabilityStatus(new NegotiatorStatus()
+        {
+        });
 
         ObjectMapper mapper = new ObjectMapper();
         String serialized = mapper.writeValueAsString(status);
@@ -100,14 +137,18 @@ public class StatusTest
     public void testReporterAndNegotiatorCapabilities() throws IOException
     {
         Status status = new Status("empty service");
-        status.setCapabilityStatus(new ReporterStatus());
-        status.setCapabilityStatus(new NegotiatorStatus());
+        status.setCapabilityStatus(new ReporterStatus()
+        {
+        });
+        status.setCapabilityStatus(new NegotiatorStatus()
+        {
+        });
 
         ObjectMapper mapper = new ObjectMapper();
         String serialized = mapper.writeValueAsString(status);
 
         assertEquals(
-                "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"negotiator\":{},\"reporter\":{}}}",
+                "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"reporter\":{},\"negotiator\":{}}}",
                 serialized);
     }
 }

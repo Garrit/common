@@ -1,6 +1,6 @@
 package org.garrit.common.statuses;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * A representation of the status of a judge.
@@ -8,25 +8,27 @@ import lombok.Data;
  * @author Samuel Coleman <samuel@seenet.ca>
  * @since 1.0.0
  */
-@Data
-public class JudgeStatus implements CapabilityStatus
+@JsonPropertyOrder({"languages", "problems", "queued"})
+public interface JudgeStatus extends CapabilityStatus
 {
     /**
-     * Languages supported by this executor.
+     * @return languages supported by this executor
      */
-    public String[] languages;
+    public Iterable<String> getLanguages();
+
     /**
-     * Problems supported by this executor.
+     * @return problems supported by this executor
      */
-    public String[] problems;
+    public Iterable<String> getProblems();
+
     /**
-     * The IDs of submissions which have been delivered to this judge but
+     * The IDs of submissions which have been delivered to this executor but
      * have not yet been evaluated.
      */
-    public int[] queued;
+    public Iterable<Integer> getQueued();
 
     @Override
-    public CapabilityType getCapabilityType()
+    public default CapabilityType getCapabilityType()
     {
         return CapabilityType.JUDGE;
     }
