@@ -14,12 +14,12 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Judgement extends Execution
+public class Judgement extends Submission
 {
     /**
      * Cases evaluated during the judgement.
      */
-    private List<ExecutionCase> cases = new ArrayList<>();
+    private List<JudgementCase> cases = new ArrayList<>();
 
     public Judgement()
     {
