@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Judgement extends Submission
+public class Judgement extends RegisteredSubmission
 {
     /**
      * Cases evaluated during the judgement.
