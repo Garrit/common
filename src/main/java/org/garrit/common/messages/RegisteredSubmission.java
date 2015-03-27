@@ -27,4 +27,10 @@ public class RegisteredSubmission extends Submission
     {
         super(submission);
     }
+
+    public RegisteredSubmission(RegisteredSubmission submission)
+    {
+        super(submission);
+        this.id = submission.id;
+    }
 }
