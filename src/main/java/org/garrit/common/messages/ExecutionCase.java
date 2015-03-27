@@ -31,4 +31,17 @@ public class ExecutionCase
      * If an error occurred, a reason may be noted here.
      */
     private String error;
+
+    public ExecutionCase()
+    {
+    }
+
+    public ExecutionCase(ExecutionCase executionCase)
+    {
+        this.name = executionCase.name;
+        this.runtime = executionCase.runtime;
+        this.output = executionCase.output;
+        this.errorOccurred = executionCase.errorOccurred;
+        this.error = executionCase.error;
+    }
 }

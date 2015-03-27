@@ -31,4 +31,14 @@ public class JudgementCase extends ExecutionCase
      * Any judgement notes may be given here.
      */
     private String notes;
+
+    public JudgementCase()
+    {
+        super();
+    }
+
+    public JudgementCase(ExecutionCase executionCase)
+    {
+        super(executionCase);
+    }
 }
