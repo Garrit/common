@@ -1,5 +1,6 @@
 package org.garrit.common.messages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -18,5 +19,15 @@ public class Execution extends RegisteredSubmission
     /**
      * Cases evaluated during the execution.
      */
-    private List<ExecutionCase> cases;
+    private List<ExecutionCase> cases = new ArrayList<>();
+
+    public Execution()
+    {
+        super();
+    }
+
+    public Execution(RegisteredSubmission submission)
+    {
+        super(submission);
+    }
 }

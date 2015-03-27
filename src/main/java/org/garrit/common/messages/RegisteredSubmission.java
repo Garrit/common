@@ -17,4 +17,14 @@ public class RegisteredSubmission extends Submission
      * A unique ID for the submission.
      */
     private int id;
+
+    public RegisteredSubmission()
+    {
+        super();
+    }
+
+    public RegisteredSubmission(Submission submission)
+    {
+        super(submission);
+    }
 }

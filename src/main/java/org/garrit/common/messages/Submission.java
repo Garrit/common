@@ -1,5 +1,6 @@
 package org.garrit.common.messages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -24,7 +25,7 @@ public class Submission
     /**
      * All files required for the submission.
      */
-    private List<SubmissionFile> files;
+    private List<SubmissionFile> files = new ArrayList<>();
     /**
      * An identifier serving as the main entry point for the submission. What
      * exactly constitutes the main entry point for the submission will depend
@@ -35,4 +36,16 @@ public class Submission
      * of entry.
      */
     private String entryPoint;
+
+    public Submission()
+    {
+    }
+
+    public Submission(Submission submission)
+    {
+        this.language = submission.language;
+        this.problem = submission.problem;
+        this.files = new ArrayList<>(submission.files);
+        this.entryPoint = submission.entryPoint;
+    }
 }
