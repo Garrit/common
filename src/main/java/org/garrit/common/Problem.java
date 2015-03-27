@@ -1,5 +1,6 @@
 package org.garrit.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.Data;
@@ -46,9 +47,9 @@ public class Problem
     /**
      * The sample cases for the problem.
      */
-    private List<ProblemSample> samples;
+    private List<ProblemSample> samples = new ArrayList<>();
     /**
      * The secret judging cases for the problem.
      */
-    private List<ProblemCase> cases;
+    private List<ProblemCase> cases = new ArrayList<>();
 }
