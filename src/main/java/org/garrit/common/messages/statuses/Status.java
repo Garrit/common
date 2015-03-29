@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Value;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Response for a service status request.
@@ -59,6 +60,7 @@ public class Status
      * @return the status of individual service features
      */
     @JsonProperty("provides")
+    @JsonPropertyOrder({"executor", "judge", "reporter", "negotiator"})
     public Map<CapabilityType, CapabilityStatus> getCapabilityStatuses()
     {
         return Collections.unmodifiableMap(this.capabilityStatuses);
