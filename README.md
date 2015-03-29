@@ -12,7 +12,9 @@ Installation
 After checking out the repository, it can be built with
 [Maven](http://maven.apache.org/):
 
-    mvn install
+```
+mvn install
+```
 
 Usage
 -----
@@ -20,8 +22,10 @@ Usage
 To use the components provided by this project, include a reference to it in
 your POM:
 
-    <dependency>
-        <groupId>org.garrit</groupId>
-        <artifactId>java-common</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </dependency>
+```xml
+<dependency>
+    <groupId>org.garrit</groupId>
+    <artifactId>java-common</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
