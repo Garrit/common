@@ -1,9 +1,11 @@
 package org.garrit.common.messages.statuses;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashSet;
 
 import org.junit.Test;
 
@@ -147,8 +149,12 @@ public class StatusTest
         ObjectMapper mapper = new ObjectMapper();
         String serialized = mapper.writeValueAsString(status);
 
-        assertEquals(
-                "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"reporter\":{},\"negotiator\":{}}}",
-                serialized);
+        String orderA = "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"reporter\":{},\"negotiator\":{}}}";
+        String orderB = "{\"name\":\"empty service\",\"uptime\":0,\"provides\":{\"negotiator\":{},\"reporter\":{}}}";
+        HashSet<String> expected = new HashSet<>();
+        expected.add(orderA);
+        expected.add(orderB);
+
+        assertTrue(expected.contains(serialized));
     }
 }
