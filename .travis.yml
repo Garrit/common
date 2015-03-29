@@ -1,4 +1,8 @@
 language: java
+sudo: false
 
 jdk:
   - oraclejdk8
+
+before_script:
+  - git clone --depth=50 --branch=master git://github.com/Garrit/problems.git /home/travis/build/Garrit/problems
