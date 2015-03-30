@@ -1,7 +1,7 @@
 Common Java Components for Garrit
 =================================
 
-[![Build Status](https://secure.travis-ci.org/Garrit/java-common.png?branch=master)](https://travis-ci.org/Garrit/java-common)
+[![Build Status](https://secure.travis-ci.org/Garrit/java-common.svg?branch=master)](https://travis-ci.org/Garrit/java-common)
 
 This repository contains Java classes modeling messages to be exchanged between
 Garrit services. It also provides problem definition parsing.
