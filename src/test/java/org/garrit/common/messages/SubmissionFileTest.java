@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class SubmissionFileTest
 {
     private static final String SERIALIZED_FILE = "{\"filename\":\"test\",\"contents\":\"SGVsbG8gd29ybGQ=\"}";
-    private static final byte FILE_CONTENTS[] = new byte[] {'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'};
+    private static final byte FILE_CONTENTS[] = "Hello world".getBytes();
 
     @Test
     public void testBase64Decode() throws IOException
