@@ -1,5 +1,7 @@
 package org.garrit.common.messages.statuses;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * Each service provides one or more capabilities. This enum permits services to
  * programmatically identify their capabilities.
@@ -9,6 +11,7 @@ package org.garrit.common.messages.statuses;
  */
 public enum CapabilityType
 {
+    SUBMITTOR("submittor"),
     EXECUTOR("executor"),
     JUDGE("judge"),
     REPORTER("reporter"),
@@ -24,6 +27,7 @@ public enum CapabilityType
     }
 
     @Override
+    @JsonValue
     public String toString()
     {
         return this.name;
