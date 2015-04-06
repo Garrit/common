@@ -24,5 +24,9 @@ public enum ErrorType
     /**
      * A failure occurring during submission execution.
      */
-    E_RUNTIME
+    E_RUNTIME,
+    /**
+     * A failure while judging the submission
+     */
+    E_JUDGING
 }
