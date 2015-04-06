@@ -23,14 +23,6 @@ public class ExecutionCase
      * The output of the submission for the case.
      */
     private byte[] output;
-    /**
-     * Whether or not an error occurred.
-     */
-    private boolean errorOccurred;
-    /**
-     * If an error occurred, a reason may be noted here.
-     */
-    private String error;
 
     public ExecutionCase()
     {
@@ -41,7 +33,5 @@ public class ExecutionCase
         this.name = executionCase.name;
         this.runtime = executionCase.runtime;
         this.output = executionCase.output;
-        this.errorOccurred = executionCase.errorOccurred;
-        this.error = executionCase.error;
     }
 }
