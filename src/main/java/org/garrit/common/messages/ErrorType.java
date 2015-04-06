@@ -26,7 +26,7 @@ public enum ErrorType
      */
     E_RUNTIME,
     /**
-     * A failure while judging the submission
+     * A failure while judging the submission.
      */
     E_JUDGING
 }
