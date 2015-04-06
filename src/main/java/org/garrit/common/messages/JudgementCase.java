@@ -1,5 +1,8 @@
 package org.garrit.common.messages;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -30,6 +33,7 @@ public class JudgementCase extends ExecutionCase
     /**
      * Any judgement notes may be given here.
      */
+    @JsonInclude(Include.NON_NULL)
     private String notes;
 
     public JudgementCase()
